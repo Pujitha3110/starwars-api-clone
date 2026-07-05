@@ -2,10 +2,15 @@ const express = require("express");
 
 const app = express();
 
+const authRoutes = require("./routes/authRoutes");
+
 // Middleware
 app.use(express.json());
 
-// Default Route
+// Routes
+app.use("/api/auth", authRoutes);
+
+// Home Route
 app.get("/", (req, res) => {
     res.status(200).json({
         success: true,
